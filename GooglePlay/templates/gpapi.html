@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Google Play APK Downloader</title>
+		<meta charset="utf-8">
+		<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+		<title>{% block title %}{% endblock %}</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+        <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/chart.min.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/normalize.css" />
+        <meta name="DownloadOptions" content="save" />
+        <style>
+                body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+                .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+                .fa-anchor,.fa-coffee {font-size:200px}
+        </style>
+        <style>
+                body {
+                    background-image: url("/static/Background.png ");
+                }
+        </style>
+    <style>
+        div {
+
+            border: 25px solid green;
+            padding: 40px;
+            margin: 150px;
+            border-radius: 40px;
+}
+    </style>
+</head>
+<body>
+<div>
+    <a href="https://play.google.com/store/apps" style="float: right; margin-top: -40px;margin-right: -35px;" target="_blank">Visit Play Store &#8635; </a>
+    <h4 style="padding-left: 350px;">Package name or Google Play URL</h4>
+
+
+    <form id="urlform" method="POST" action="/upload_binary_url/">{% csrf_token %}
+
+        <input type="text" name="url" class="form-control" style="margin-left: 290px;height: 40px;width: 445px;border-radius: 10px;"
+               placeholder="Ex: https://play.google.com/store/details?id=com.android.mobilesecurity or com.android.mobilesecurity"
+               required><br>
+        <br>
+        <button class="btn btn-info btn-sm" style="background-color: #1AB999; margin-left: 450px;border-radius: 10px;">Download <i class="fa fa-hand-pointer-o" ></i></button>
+        {% if filename %}
+        <span id="mydiv" style="color:red"> {{ filename }} </span>
+        {% endif %}
+    </form>
+
+</div>
+
+</body>
+</html>
